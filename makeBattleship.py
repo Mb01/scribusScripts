@@ -1,5 +1,4 @@
 
-
 #make a battleship game
 import time
 import os
