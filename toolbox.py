@@ -2,8 +2,6 @@
 
 margins = getPageMargins()# (Top Left Right Bottom)
 pageSize = getPageSize()
-#createText(x, y, width, height, ["name"]) -> string
-
 
 def createTable(originX, originY, width, height, numCols, numRows):
   names = []
@@ -15,13 +13,14 @@ def createTable(originX, originY, width, height, numCols, numRows):
       names.append(createText(x, y, width, height))
   return names
 
-def rotateTopRow(names, numberOfCols):
+def rotateTopRow(names, numberOfCols, degrees):
+  """Rotates the first numberOfCols elements in names by degrees"""
   topRow = names[::numberOfCols]
   for x in topRow:
-    rotateObject(45,x)
+    rotateObject(degrees,x)
 #example of how to use
 #names = createTable(40,40,80,80,5,6)
-#rotateTopRow(names, 5)
+#rotateTopRow(names, 5, 35)
 
 def getSelectedObjects():
   objects = []
@@ -56,6 +55,7 @@ def scrambleWords(data):
     output = [''.join(word) for word in output]
     #OUTPUT is now list of scrambled words
     #move punctuation and newlines to back of word
+    #we need a regular expression with matching for this...
     output = [word.replace('.','') + '.' if '.' in word else word for word in output]
     output = [word.replace('?','') + '?' if '?' in word else word for word in output]
     output = [word.replace('!','') + '!' if '!' in word else word for word in output]
