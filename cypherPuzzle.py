@@ -1,20 +1,27 @@
-
 import string
 import random
 import os
 
+# I wrote this where I had to move between computers and OSs several times a day
+USING_USB = True #are we running python from the usb drive
+USING_WINDOWS = True
+DIRECTORY = "programs" #or whatever
+INPUT_FILE = "input.txt"
+OUTPUT_FILE = "output.txt"
+
 
 def moveToBaseDir():
     drivePrefix = os.path.splitdrive(os.getcwdu())[0]
-
     os.chdir(drivePrefix+ '\\')
 
-#get the input
+if USING_UBS and USING_WINDOWS:
+    moveToBaseDir()
 
-moveToBaseDir()
-os.chdir("programs")
+os.chdir(DIRECTORY)
 
-test = open("input.txt", "r").read()
+infile = open(INPUT_FILE, "r")
+test = infile.read()
+infile.close()
 
 #make the table
 lower = string.ascii_lowercase
@@ -39,19 +46,9 @@ for x in range(len(output)):
 
 output = "".join([str(x) for x in output])
 
-#save
+#write the output to file
 
 output += "\n" + lower + "\n" + table
-
-out = open("output.txt","w+")
-
+out = open(OUTPUT_FILE,"w+")
 out.write(output)
-
 out.close()
-
-
-
-
-
-
-
