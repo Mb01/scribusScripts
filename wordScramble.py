@@ -1,15 +1,10 @@
 import os
 import random
+import sys
 
-def moveToBaseDir():
-    drivePrefix = os.path.splitdrive(os.getcwdu())[0]
-    os.chdir(drivePrefix+ '\\')
+# usage ./wordScramble.py /path/to/infile.txt /path/to/outfile.txt
 
-#get the input
-moveToBaseDir()
-os.chdir("programs")
-
-data = open('input.txt').read().lower().split('\n')
+data = open(sys.argv[1]).read().lower().split('\n')
 #data list of sentences
 
 output = []
@@ -33,7 +28,7 @@ output = ' '.join(output)
 
 output = output.replace("\n ", "\n")
 
-out = open('output.txt',"w")
+out = open(sys.argv[2],"w")
 out.write(output)
 out.close()
 
