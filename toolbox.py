@@ -14,7 +14,8 @@ def createTable(originX, originY, width, height, numCols, numRows):
   return names
 
 def rotateTopRow(names, numberOfCols, degrees):
-  """Rotates the first numberOfCols elements in names by degrees"""
+  """Rotates the first numberOfCols elements in names by degrees to create rotated labels for tables"""
+  """This is made to work with tables created with createTable"""
   topRow = names[::numberOfCols]
   for x in topRow:
     rotateObject(degrees,x)
@@ -44,7 +45,7 @@ def scrambleSentences(data):
     return data
 
 def scrambleWords(data):
-    '''Somehow removeing all newlines... prolly related to \r'''
+    '''Somehow removeing all newlines... probably related to \r'''
     data = data.lower().split()
     output = []
     for word in data:
@@ -64,4 +65,6 @@ def scrambleWords(data):
     output = output.replace("\n ", "\n")
     return output
 
-setText(scrambleWords(getText()))
+def scramble_words_selected():
+    """scrambles the words in a selected text box"""
+    setText(scrambleWords(getText()))
