@@ -1,3 +1,5 @@
+# as of now the usage of this is copy and paste into scripter console
+
 width, height = getPageSize()
 top_margin, left_margin, right_margin, bottom_margin = getPageMargins()
 #change to absolute positions
@@ -30,4 +32,7 @@ def rulePage(spacing, function):
     y = function(spacing, y)
     y += spacing
 
-rulePage(10, draw4Rules)
+def rule10():
+  rulePage(10, draw4Rules)
+
+rule10()
