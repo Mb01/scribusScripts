@@ -1,15 +1,15 @@
+#!/usr/bin/env python
+
+# Here's a script to scramble words on each line in a text file
+# usage ./scrambleSentences.py ~/path/to/filename
 
 import os
 import random
+import sys
 
-def moveToBaseDir():
-    drivePrefix = os.path.splitdrive(os.getcwdu())[0]
-    os.chdir(drivePrefix+ '\\')
-#get the input
-moveToBaseDir()
-os.chdir("programs")
+# TODO make this for scribus script
 
-data = open('input.txt').read().split('\n')
+data = open(sys.argv[1]).read().split('\n')
 
 #data is now a list of sentence strings
 
@@ -21,7 +21,7 @@ data = [' '.join(x) for x in data]
 
 data = '\n'.join(data)
 
-out = open('output.txt',"w+")
+out = open('scrambled.txt',"w")
 
 out.write(data)
 
