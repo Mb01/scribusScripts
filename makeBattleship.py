@@ -24,6 +24,7 @@ FONT_SIZE = 30
 #createText(x, y, width, height) -> #string which is name
 #this would be  to wrap in an object
 def custCreateTable(x, y, width, height, numrows, numcols):
+	"""creates a table and returns the names of the text boxes"""
 	pos = [x, y]
 	colwidth = width / numcols
 	rowheight = height / numrows
@@ -36,9 +37,6 @@ def custCreateTable(x, y, width, height, numrows, numcols):
 		pos[1] += rowheight
 	return names
 
-def testCreateCustomTable():
-	custCreateTable(20, 20, 500, 200, 10,5 )
-
 def makeTable():
 	names = custCreateTable(60,226,473,422, NUMROWS, NUMCOLS)
 	leftCol = [x for x in names if names.index(x) % NUMCOLS == 0][1:]
@@ -50,8 +48,6 @@ def makeTable():
 	return names, leftCol, topRow
 
 names, leftCol, topRow = makeTable()
-
-print names
 
 #Set the font and such
 for x in names:
