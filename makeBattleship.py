@@ -1,12 +1,40 @@
+"""
+This program is free software: you can redistribute it and/or modify
+it under the terms of the GNU General Public License as published by
+the Free Software Foundation, either version 3 of the License, or
+any later version.
 
-#make a battleship game
+This program is distributed in the hope that it will be useful,
+but WITHOUT ANY WARRANTY; without even the implied warranty of
+MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE. See the
+GNU General Public License for more details.
+
+For a copy of the GNU General Public License see http://www.gnu.org/licenses/
+
+Copyright Mark Bowden 2013, 2014
+"""
+
+"""
+This program makes essentially a table, originally intended for making educational worksheets where the target language represents the
+co-ordinates of a square.
+"""
+
+# NOTE this program makes a table and lacks some of the functionality I've put into toolbox.py so it may be a scrap
+
+# TODO, rename program file ... the file itself is/should be scrubbed of any reference 
+
 import time
 import os
+
+# TODO: I made this program to be runnable on a usb drive on Windows, probably want to remove this
+# but we still need a way to find the input text
+# idea, we could change these to selected text-boxes
 
 CURDIR = "F:"
 os.chdir(CURDIR)
 rows = open(os.path.join(CURDIR+'rows.txt') ,'r').read()
 cols = open(os.path.join(CURDIR+'cols.txt'),'r').read()
+
 ROWS = rows.split(' ')
 COLS = cols.split(' ')
 
@@ -15,14 +43,14 @@ NUMCOLS = len(COLS) +1 #a column for lables
 
 #MARGINS = (25,25,25,30)# (left, right, top, bottom) 
 #newDocument(PAPER_A4, MARGINS, PORTRAIT, 1, UNIT_POINTS, UNIT_POINTS, 0, 1)
-name = "Battleship " + str(time.ctime())
-
+name = "output" + str(time.ctime())
 name = name.replace(':', '')
-
 FONT = 'Garamond Regular'
 FONT_SIZE = 30
+
+
 #createText(x, y, width, height) -> #string which is name
-#this would be  to wrap in an object
+#this would be to wrap in an object
 def custCreateTable(x, y, width, height, numrows, numcols):
 	"""creates a table and returns the names of the text boxes"""
 	pos = [x, y]
@@ -60,4 +88,3 @@ for x in names:
 		setFontSize(font_size, x)
 
 saveDocAs(name)
-
