@@ -53,8 +53,9 @@ def drawRule(spacing, y):
   drawLine(y)
   return y + spacing
 
-
-def rulePage(spacing, function):
+# TODO: this function doesn't stop until it has gone over the limit
+# I think the best way is to pass that limit on to the drawing function
+def rulePage(spacing, function, top=top_margin, bottom=bottom_margin):
   """ rulePage takes a function which draws a rule with spacing of "spacing" at position y and returns
 a new position y to continue ruling from. """
   y = top_margin
