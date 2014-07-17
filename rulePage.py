@@ -18,6 +18,8 @@ Copyright Mark Bowden 2013, 2014
 a program for ruling pages and some utilities for costumizing
 """
 
+from scribus import *
+
 # as of now the usage of this is copy and paste into scripter console
 
 width, height = getPageSize()
